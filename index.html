@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WL Multimarcas | Moda Masculina</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="topbar">
+        <p>Frete grátis nas compras acima de R$ 199</p>
+    </div>
+
+    <div class="header-main">
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <a href="#" class="logo">
+            <span>WL</span>
+            <strong>MULTIMARCAS</strong>
+        </a>
+
+        <div class="search">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="O que você está procurando?"
+            >
+            <button id="searchBtn">⌕</button>
+        </div>
+
+        <div class="header-actions">
+            <button class="action-btn" id="accountBtn">
+                <span>♙</span>
+                <small>Minha conta</small>
+            </button>
+
+            <button class="action-btn cart-button" id="cartBtn">
+                <span>🛒</span>
+                <small>Carrinho</small>
+                <b id="cartCount">0</b>
+            </button>
+        </div>
+    </div>
+
+    <nav class="navigation" id="navigation">
+        <a href="#inicio">Início</a>
+        <a href="#adulto">Masculino Adulto</a>
+        <a href="#infantil">Masculino Infantil</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#marcas">Marcas</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span>WL MULTIMARCAS</span>
+            <h1>Estilo que combina<br>com você.</h1>
+            <p>
+                Moda masculina adulta e infantil para todos os momentos.
+                Encontre peças que unem estilo, conforto e personalidade.
+            </p>
+
+            <div class="hero-buttons">
+                <button onclick="filtrarCategoria('adulto')">
+                    Comprar adulto
+                </button>
+
+                <button class="outline" onclick="filtrarCategoria('infantil')">
+                    Ver infantil
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="section-title">
+            <span>ENCONTRE SEU ESTILO</span>
+            <h2>Compre por categoria</h2>
+        </div>
+
+        <div class="category-grid">
+
+            <button class="category-card" onclick="filtrarCategoria('camisetas')">
+                <div class="category-image">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
+                </div>
+                <h3>Camisetas</h3>
+                <p>Casual e streetwear</p>
+            </button>
+
+            <button class="category-card" onclick="filtrarCategoria('calcas')">
+                <div class="category-image">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80">
+                </div>
+                <h3>Calças</h3>
+                <p>Jeans, sarja e mais</p>
+            </button>
+
+            <button class="category-card" onclick="filtrarCategoria('camisas')">
+                <div class="category-image">
+                    <img src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=700&q=80">
+                </div>
+                <h3>Camisas</h3>
+                <p>Para qualquer ocasião</p>
+            </button>
+
+            <button class="category-card" onclick="filtrarCategoria('infantil')">
+                <div class="category-image">
+                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=700&q=80">
+                </div>
+                <h3>Infantil</h3>
+                <p>Estilo para os pequenos</p>
+            </button>
+
+        </div>
+    </section>
+
+    <section class="products-section" id="adulto">
+
+        <div class="section-heading">
+            <div>
+                <span>MODA MASCULINA</span>
+                <h2>Produtos em destaque</h2>
+            </div>
+
+            <button class="view-all" onclick="filtrarCategoria('todos')">
+                Ver todos →
+            </button>
+        </div>
+
+        <div class="filter-area">
+
+            <button class="filter active" data-filter="todos">
+                Todos
+            </button>
+
+            <button class="filter" data-filter="camisetas">
+                Camisetas
+            </button>
+
+            <button class="filter" data-filter="camisas">
+                Camisas
+            </button>
+
+            <button class="filter" data-filter="calcas">
+                Calças
+            </button>
+
+            <button class="filter" data-filter="bermudas">
+                Bermudas
+            </button>
+
+            <button class="filter" data-filter="infantil">
+                Infantil
+            </button>
+
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+    </section>
+
+    <section class="banner" id="ofertas">
+        <div>
+            <span>OFERTAS WL</span>
+            <h2>Seu próximo look<br>começa aqui.</h2>
+            <p>Peças selecionadas com preços especiais por tempo limitado.</p>
+
+            <button onclick="filtrarCategoria('ofertas')">
+                Ver ofertas
+            </button>
+        </div>
+    </section>
+
+    <section class="brands" id="marcas">
+
+        <div class="section-title">
+            <span>SELEÇÃO WL</span>
+            <h2>Marcas e estilos</h2>
+        </div>
+
+        <div class="brands-grid">
+            <div>URBAN</div>
+            <div>DENIM</div>
+            <div>CLASSIC</div>
+            <div>KIDS</div>
+            <div>STREET</div>
+            <div>ESSENTIAL</div>
+        </div>
+
+    </section>
+
+    <section class="newsletter">
+        <div>
+            <span>WL MULTIMARCAS</span>
+            <h2>Receba novidades e ofertas</h2>
+            <p>
+                Cadastre seu e-mail para acompanhar lançamentos,
+                promoções e novidades da WL.
+            </p>
+        </div>
+
+        <form id="newsletterForm">
+            <input
+                type="email"
+                placeholder="Digite seu melhor e-mail"
+                required
+            >
+            <button type="submit">Cadastrar</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <div class="footer-logo">WL</div>
+
+            <p>
+                Moda masculina adulta e infantil,
+                reunindo diferentes estilos em um só lugar.
+            </p>
+        </div>
+
+        <div>
+            <h3>Institucional</h3>
+            <a href="#">Sobre a WL</a>
+            <a href="#">Nossas lojas</a>
+            <a href="#">Trabalhe conosco</a>
+        </div>
+
+        <div>
+            <h3>Atendimento</h3>
+            <a href="#">Central de ajuda</a>
+            <a href="#">Trocas e devoluções</a>
+            <a href="#">Política de entrega</a>
+        </div>
+
+        <div>
+            <h3>Contato</h3>
+            <p>WhatsApp: (21) 99999-9999</p>
+            <p>Email: contato@wlmultimarcas.com</p>
+            <div class="social">
+                <span>Instagram</span>
+                <span>Facebook</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 WL Multimarcas. Todos os direitos reservados.
+    </div>
+
+</footer>
+
+
+<!-- CARRINHO -->
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-sidebar" id="cartSidebar">
+
+    <div class="cart-header">
+        <h2>Meu carrinho</h2>
+        <button id="closeCart">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <div class="empty-cart">
+            <span>🛒</span>
+            <h3>Seu carrinho está vazio</h3>
+            <p>Adicione produtos para começar sua compra.</p>
+        </div>
+    </div>
+
+    <div class="cart-footer">
+
+        <div class="subtotal">
+            <span>Subtotal</span>
+            <strong id="cartTotal">R$ 0,00</strong>
+        </div>
+
+        <button class="checkout-btn" id="checkoutBtn">
+            Finalizar compra
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- MODAL PRODUTO -->
+
+<div class="modal" id="productModal">
+
+    <div class="modal-content">
+
+        <button class="modal-close" id="closeModal">×</button>
+
+        <div id="modalProduct"></div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    Produto adicionado ao carrinho.
+</div>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
